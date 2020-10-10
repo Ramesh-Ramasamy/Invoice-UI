@@ -1,0 +1,149 @@
+/* #invoice{
+  font-family: 'Arimo', sans-serif !important;
+  font-size: 12px;
+} */
+#invoice-original img{
+  width: 100%;
+}
+.invoice-column{
+  padding: 0;
+}
+.invoice-processed{
+	padding: 20px;
+}
+
+#directButton{
+  font-size: 8px;
+  border: 2px solid #e5e8ea;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+#directButton:hover{
+  background: #f6f9fc ;
+}
+#directButton .fa-envelope{
+  color: #73BCF7
+}
+.dropdown{
+  margin-right: 10px;
+  float: left;
+}
+#dropdownMenuButton, #dropdownMenuButton:hover {
+  font-size: 12px;
+  color: black;
+  background-color: #e5e8ea;
+  border-color: #6c757d;
+}
+.dropdown-menu{
+  left: -110px !important;
+  font-size: 12px !important;
+  line-height: normal !important;
+  width: 180px;
+}
+
+.dropdown-menu .dropdown-item{
+  padding: .25rem 1rem !important;
+}
+
+.dropdown-menu .dropdown-item .menu_icon{
+  float: right;
+}
+#approve{
+  font-size: 12px;
+  padding: .35rem 1.5rem !important;
+}
+
+#minDetails, .details{
+  font-size: 12px;
+  font-weight: 500;
+}
+
+#max_details{
+  margin-bottom: 0px;
+}
+
+#max_details tbody{
+  line-height: 0.7;
+}
+#max_details td{
+  padding-left: 0px;
+  padding-bottom: 7px;
+}
+
+.line{
+  margin-bottom: 0px;
+}
+
+.light{
+  color: #cac9c9;
+}
+.td-light{
+  color: #cac9c9;
+  font-size: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#memo, .invoice-tab{
+  font-size: 12px;
+  font-family: 'Arimo', sans-serif;
+}
+#memo .fa-comment{
+  margin-right: 8px;
+}
+
+#total{
+  text-transform: uppercase;
+  font-size: 8px;
+}
+.amount{
+  font-size: 15px;
+}
+
+#minDetails td{
+  padding-left: 0;
+}
+#vendor {
+  color: #49D6BC;
+  font-size: 10px;
+  font-weight: bold;
+}
+.invoice-tab .nav .nav-item .nav-link{
+  border-left: None;
+  border-right: None;
+  border-top: None;
+  margin-right: 10px;
+  padding-left: 2px;
+}
+
+.invoice-tab .nav .nav-item .active{
+  font-weight: bold;
+  color: black;
+  border-bottom: 3px solid #499ee4;
+}
+
+.invoice-tab .nav .nav-item :not(.active){
+  color: #cac9c9;
+  font-weight: bold;
+}
+
+#recent-activity{
+  font-size: 0.9rem;
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  margin: 1rem 0rem;
+}
+
+.history-card{
+  padding:10px
+}
+
+.flagged{
+  color: #FF415E;
+}
+
+.flag-icon{
+  font-size: 20px;
+  padding-right: 0px;
+  text-align: right;
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/invoice.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arimo&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/fb9d0e9c60.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.1/angular.min.js"></script>
+    <script type="text/javascript" src="public/js/invoice.js"></script>
+    <title>Invoice View</title>
+  </head>
+  <body>
+  <div class="container-fluid" ng-app="invoice" ng-controller="invoiceCtrl">
+    <div class="row">
+      <div id="invoice-original" class="col-md-6 invoice-column">
+        <img src="public/img/invoice_original.png" alt="">
+      </div>
+      <div class="col-md-6 invoice-processed invoice-column">
+        <div class="row">
+          <div class="col-sm-8">
+            <span class="btn btn-light" id="directButton"><i class="fa fa-envelope" aria-hidden="true"></i> Direct  </span>
+          </div>
+          <div class="col-sm-4 ">
+            <div class="dropdown  ">
+              <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                More
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">Export</a>
+                <a class="dropdown-item" href="#">Mark as exported</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Setup Vendor</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Flag Invoice <i class="fa fa-flag menu_icon" aria-hidden="true"></i> </a>
+                <a class="dropdown-item" href="#">Archieve Invoice <i class="fa fa-archive menu_icon" aria-hidden="true"></i></a>
+                <a class="dropdown-item" href="#">Delete Invoice <i class="fa fa-trash menu_icon" aria-hidden="true"></i> </a>
+              </div>
+            </div>
+            <span>
+              <button type="button" class="btn btn-primary" id="approve">Approve</button>
+            </span>
+            <span>
+              
+            </span>
+          </div>
+        </div>
+
+        <div class="row invoice-details">
+          <div class="col-md-12">
+            <div invoice-name ng-hide="show_detailed_invoice_view">
+              <h4>Freguesia Cheese <span ng-click="change_invoice_view()"><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></span></h4>
+              <table class="table">
+                <tbody>
+                  <tr id="minDetails">
+                    <td>00003526</td>
+                    <td>July 09 2022</td>
+                    <td>Monty's Cheese Shop</td>
+                    <td class="light">Lorem ipsum..</td>
+                    <td class="amount"><span class="light" id="total"> Total </span> $10,000.00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="invoice-detail-view" ng-show="show_detailed_invoice_view">
+              <span>Vendor</span>
+              <h4>Freguesia Cheese <span ng-click="change_invoice_view()"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></span></h4>
+              <span id="vendor"><i class="fa fa-check-circle-o" aria-hidden="true"></i> This vendor is mapped</span>
+              <table class="table" id="max_details">
+                <tbody>
+                  <tr>
+                    <td>
+                      <h6 class="td-light">Invoice No.</h6>
+                      <span class="details">00003526</span>
+                    </td>
+                    <td>
+                      <h6 class="td-light">Invoice Type</h6>
+                      <span class="details">Receipt</span>
+                    </td>
+                    <td>
+                      <h6 class="td-light">Restaurant</h6>
+                      <span class="details">Monty's Cheese Shop</span>
+                    </td>
+                    <td class="td-light">
+                      <div>
+                        <p>Subtotal<span class="float-right">$1300.00</span></p>
+                      </div>
+                      <div>
+                        <p>Tax<span class="float-right">$26.32.00</span></p>
+                      </div> 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h6 class="td-light">Posting Date</h6>
+                      <span class="details">Jul 14 2022</span>
+                    </td>
+                    <td>
+                      <h6 class="td-light">Invoice Date</h6>
+                      <span class="details">Jul 09 2022</span>
+                    <td>
+                      <h6 class="td-light">Invoice Date</h6>
+                      <span class="details">Jul 09 2022</span>
+                    </td>
+                    <td>
+                      <div>
+                        <span class="td-light">Total</span> <span class="float-right amount">$10000.00</span>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <hr class="line">
+              <span class="light" id="memo"><i class="fa fa-comment" aria-hidden="true"></i>Click to enter Memo</span>
+            </div>
+            <br>
+            <div class="invoice-tab">
+              <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                  <a class="nav-link active" id="lineitems-tab" data-toggle="tab" href="#lineitems" role="tab" aria-controls="lineitems" aria-selected="true">Line Items</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab" aria-controls="history" aria-selected="false">History</a>
+                </li>
+              </ul>
+              <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="lineitems" role="tabpanel" aria-labelledby="lineitems-tab">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="_ in [1,2,3,4]">
+                        <td><span>Grusure-greysar</span><br><span class="light">Dairy 4410-6680</span></td>
+                        <td>3</td>
+                        <td>$1.00 <span class="light">Unit</span> </td>
+                        <td>$328.7</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
+                  <h6 id="recent-activity">Recent Activity</h6>
+                  <div class="card history-card">
+                    <div class="row">
+                      <div class="col-md-4">
+                        Today <br>
+                        <span class="light">9.25 AM</span>
+                      </div>
+                      <div class="col-md-1 flag-icon"><i class="fa fa-circle flagged"></i></div>
+                      <div class="col-md-7">
+                        <div class="flagged">  Flagged By John Due</div>
+                        <div>Lorem Ipsum</div>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+    <!-- <h1>Hello, world!</h1> -->
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
